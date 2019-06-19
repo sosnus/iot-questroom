@@ -1,6 +1,13 @@
 var http = require('http');
 var url = require('url');
 
+var nodes = [
+    { name: 'window', status: 'open',},
+    { name: 'maze1', status: 'solved'},
+    { name: 'lamp1', status: 'off' }
+];
+
+
 var serverLoopMessageCnt = 10000;
 
 console.log(`SERVER START!`);
@@ -9,7 +16,7 @@ function timerFunc(arg) {
 
 //  console.log(`arg was => ${arg}`);
   console.log(`Server working `+ Date.now());
-
+console.log(nodes);
 setTimeout(timerFunc, serverLoopMessageCnt, 'Server working');
 }
 
