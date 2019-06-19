@@ -1,18 +1,19 @@
 var http = require('http');
 var url = require('url');
 
+var serverLoopMessageCnt = 10000;
 
 console.log(`SERVER START!`);
 
 function timerFunc(arg) {
 
 //  console.log(`arg was => ${arg}`);
-  console.log(`arg was => ${arg}`);
+  console.log(`Server working `+ Date.now());
 
-setTimeout(timerFunc, 1500, 'Server working');
+setTimeout(timerFunc, serverLoopMessageCnt, 'Server working');
 }
 
-setTimeout(timerFunc, 1500, 'Server working...');
+setTimeout(timerFunc, 0, 'Server working...');
 
 
 http.createServer(function (req, res) {
