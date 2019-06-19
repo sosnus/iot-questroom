@@ -35,10 +35,22 @@ fs.readFile('./index.html', function (err, html) {
     if (err) {
         throw err; 
     }       
-    http.createServer(function(request, response) {  
-        response.writeHeader(200, {"Content-Type": "text/html"});  
-        response.write(html);  
+    http.createServer(function(req, response) {  
+        response.writeHeader(200, {"Content-Type": "text/html"}); 
+        
+        //mini routing
+        var q = url.parse(req.url, true).query;
+        if (q.name == 'case') {
+          
+        response.write(q.name + '  ' + q.status);  
         response.end();  
+        }
+        else{
+
+          
+          response.write(html);  
+          response.end();  
+        }
     }).listen(8080);
 });
 
