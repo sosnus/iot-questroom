@@ -3,6 +3,7 @@ sudo apt install nodejs
 
 echo "Node install done!"
 
+sudo apt-get update
 
 sudo apt install npm
 
