@@ -1,6 +1,19 @@
 var http = require('http');
 var url = require('url');
 
+
+console.log(`SERVER START!`);
+
+function timerFunc(arg) {
+
+  console.log(`arg was => ${arg}`);
+
+setTimeout(timerFunc, 1500, 'funky');
+}
+
+setTimeout(timerFunc, 1500, 'Server working...');
+
+
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/html'});
   /*Use the url module to turn the querystring into an object:*/
