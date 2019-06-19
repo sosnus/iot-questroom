@@ -5,20 +5,23 @@ var nodes = [
     { name: 'case', status: 'hello!'},
 
 {name:'case2',status:'default'}
-];
-//,
- //   { name: 'maze1', status: 'solved'},
-  //  { name: 'lamp1', status: 'off' }
-//];
-
+]; 
 
 var serverLoopMessageCnt = 10000;
 
 console.log(`SERVER START!`);
 
+
+
+function displayServerStatus(){
+console.log(nodes[0].name + ' '+nodes[0].status);
+
+}
+
+
+
 function timerFunc(arg) {
 
-//  console.log(`arg was => ${arg}`);
   console.log(`Server working `+ Date.now());
 console.log(nodes);
 setTimeout(timerFunc, serverLoopMessageCnt, 'Server working');
@@ -32,18 +35,17 @@ http.createServer(function (req, res) {
 
   var q = url.parse(req.url, true).query;
 
-if(q.name='case')
+
+if(q.name=='case')
 {
 	nodes[0].status=q.status;
 }
 
-
-
-  /*Use the url module to turn the querystring into an object:*/
+var txt = q.name + '  ' + q.status;
+console.log('NEW REQUEST: '+ txt);
   
-  /*Return the year and month from the query object:*/
-  //var txt = q.year + " " + q.month;
-console.log('NEW REQUEST: '+nodes[0]);
-  res.end(nodes[0]);
+displayServerStatus();
+
+res.end(txt);
 }).listen(8080);
 
