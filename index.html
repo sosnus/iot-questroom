@@ -30,8 +30,13 @@
       <label for="comment">Comment:</label>
       <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" onclick="myFunction()">Submit</button>
+    <button onclick="myFunction()">Click me</button>
   </form>
-
+  <script>
+    function myFunction() {
+      console.log("BUTTON!!!");
+    }
+    </script>
 </body>
 </html>
