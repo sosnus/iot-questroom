@@ -17,7 +17,7 @@
 </div>
   
 <div class="container">
-  <button type="button" class="btn btn-info">Press to communicate</button>
+  <button type="button" onclick="httpGet()" class="btn btn-info">Press to communicate</button>
     <h1></h1>
   <div class="alert alert-success">
     <strong>Success!</strong> The communication is active.
@@ -37,6 +37,17 @@
     function myFunction() {
       console.log("BUTTON!!!");
     }
+
+
+function httpGet()
+{
+var theUrl = "http://localhost:8080/?name=case&status=temp12";
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
+
     </script>
 </body>
 </html>
