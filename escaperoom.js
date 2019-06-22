@@ -13,6 +13,7 @@ console.log(`http://localhost:8080/?name=case`);
 var ip = require("ip");
 console.dir ( ip.address() );
 
+console.log('http://'+ip.address()+'/?name=case&status=temp');
 
 function displayServerStatus() {
   console.log(`Timestamp: ` + Date.now());
@@ -44,13 +45,12 @@ fs.readFile('./index.html', function (err, html) {
         //mini routing
         var q = url.parse(req.url, true).query;
         if (q.name == 'case') {
-          
+	console.log('return NODE');
         response.write(q.name + '  ' + q.status);  
         response.end();  
         }
         else{
-
-          
+          console.log('return HTML page');
           response.write(html);  
           response.end();  
         }
