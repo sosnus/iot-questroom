@@ -10,6 +10,9 @@ var serverLoopMessageCnt = 10000;
 
 console.log(`SERVER START!`);
 console.log(`http://localhost:8080/?name=case`);
+var ip = require("ip");
+console.dir ( ip.address() );
+
 
 function displayServerStatus() {
   console.log(`Timestamp: ` + Date.now());
