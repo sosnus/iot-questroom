@@ -43,7 +43,6 @@ fs.readFile('./index.html', function (err, html) {
     }       
     http.createServer(function(req, response) {  
         response.writeHeader(200, {"Content-Type": "text/html"}); 
-        
         //mini routing
         var q = url.parse(req.url, true).query;
         if (q.name == 'case') {
@@ -62,51 +61,3 @@ fs.readFile('./index.html', function (err, html) {
         }
     }).listen(portHttp);
 });
-
-// http.createServer(function (req, res) {
-//   res.writeHead(200, { 'Content-Type': 'text/html' });
-
-//   var q = url.parse(req.url, true).query;
-
-
-//   if (q.name == 'case') {
-//     nodes[0].status = q.status;
-//     var txt = q.name + '  ' + q.status;
-//     console.log('NEW REQUEST: ' + txt);
-//     displayServerStatus();
-//      res.end(txt);
-//   }
-//   else {
-//     var text = "a";
-//     var fs = require('fs');
-
-//     fs.readFile('index.html', 'utf8', function (err, data) {
-//       if (err) throw err;
-//       text = data;
-//       console.log(txt);
-//       // res.end(txt);
-//       res.render('index');
-//     });
-//     console.log('HTML');
-//   }
-//   //res.end(txt);
-
-// }).listen(8080);
-
-
-
-/*
-else{
-  fs = require('fs');
-  fs.readFile('./index.html', function (err, html) {
-    if (err) {
-        throw err;
-    }
-    // txt = fs;
-    res.write(html);
-    res.end();
-  console.log('HTML');
-}
-}
-
-*/

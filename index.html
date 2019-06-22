@@ -11,20 +11,46 @@
 </head>
 <body>
 
+  <script>
+    function myFunction() {
+      console.log("BUTTON!!!");
+    }
+
+
+function myFun() {
+  document.getElementById("infoDiv").innerHTML = httpGet();
+}
+
+function httpGet()
+{
+var ipAdr = "192.168.99.248";
+var textBoxContent = document.getElementsByName('textBoxContent')[0].value
+var theUrl = "http://"+ipAdr+":8080/?name=case&status="+textBoxContent;
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+
+
+}
+
+    </script>
+    
 <div class="jumbotron text-center">
   <h1>Escape Case</h1>
   <p>This is an interface for the teacher to communicate with the student.</p> 
 </div>
   
 <div class="container">
-  <button type="button" onclick="httpGet()" class="btn btn-info">Press to communicate</button>
+  <button type="button" onclick="myFun()" class="btn btn-info">Press to communicate</button>
+  <input type="text" name="textBoxContent" value="replace this!!!">
     <h1></h1>
-  <div class="alert alert-success">
+  <div class="alert alert-success" id="infoDiv">
     <strong>Success!</strong> The communication is active.
   </div>
 </div>
 
-<h5>Write your message here</h5>
+<!-- <h5>Write your message here</h5>
   <form action="/action_page.php">
     <div class="form-group">
       <label for="comment">Comment:</label>
@@ -32,22 +58,7 @@
     </div>
     <button type="submit" class="btn btn-primary" onclick="myFunction()">Submit</button>
     <button onclick="myFunction()">Click me</button>
-  </form>
-  <script>
-    function myFunction() {
-      console.log("BUTTON!!!");
-    }
+  </form> -->
 
-
-function httpGet()
-{
-var theUrl = "http://localhost:8080/?name=case&status=temp12";
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-    xmlHttp.send( null );
-    return xmlHttp.responseText;
-}
-
-    </script>
 </body>
 </html>
